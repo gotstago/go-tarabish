@@ -14,6 +14,7 @@ func BuildRoutes() http.Handler {
 	router.HandleFunc("/login-success", LoginSuccessHandler)
 	router.HandleFunc("/verify", VerifyHandler)
 	router.HandleFunc("/logout", LogoutHandler)
+	router.HandleFunc("/game", GameHandler)
 
 	// profile routes with LoginRequiredMiddleware
 	profileRouter := mux.NewRouter()

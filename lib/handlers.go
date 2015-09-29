@@ -188,3 +188,30 @@ func LogoutHandler(w http.ResponseWriter, r *http.Request) {
 func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, r, "profile", nil)
 }
+
+func GameHandler(w http.ResponseWriter, r *http.Request) {
+	player1Cards := []Card{
+		{"spades", "K", "♠", "K"},
+		{"clubs", "Q", "♣", "Q"},
+		{"hearts", "J", "♥", "J"},
+		{"diams", "10", "♦", "10"},
+	}
+	player1Hand := Hand{
+		"player 1",
+		player1Cards,
+	}
+	page := make(map[string]interface{})
+	page["Player1Hand"] = player1Hand
+	page["Message"] = "Howdyu"
+	//    "r":   2138,
+	//    "gri": 1908,
+	//    "adg": 912,
+	//}
+
+	//	Page{
+	//		"Your Bid",
+	//		player1Hand,
+	//	}
+
+	renderTemplate(w, r, "cardTable", page)
+}
